@@ -48,6 +48,14 @@ const cardGenerator = (imgArr) => {
     flipCard.appendChild(front);
     flipCard.appendChild(back);
     card.appendChild(flipCard);
+
+    
+    /* const cardHTML = `
+        <div class="miaclasse">
+            <img src="${mioSrc}"/>
+        </div>
+    ` */
+
     document.getElementById('container').appendChild(card)
 
     

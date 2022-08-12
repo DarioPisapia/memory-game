@@ -1,4 +1,4 @@
-import { toZero, resultCalculator } from "./gameLogic.js"
+import { toZero, resultCalculator, moves } from "./gameLogic.js"
 import { cardGenerator, shuffler } from "./cardGenerator.js"
 
 var seconds = 0
@@ -12,17 +12,8 @@ const flip = (ids) => {
     document.getElementById(ids).classList.toggle('flip')
 }
 
-const clearAll = () => {
-    const parent = document.getElementById('container')
-    var child = parent.lastElementChild
-    while (child) {
-        parent.removeChild(child)
-        child = parent.lastElementChild
-    }
-}
-
 const reset = () => {
-    clearAll()
+    document.getElementById('container').innerHTML = "";
     cardGenerator(shuffler())
     document.getElementById('overlay').style.display = 'none'
     document.getElementById('minutes').textContent = `00`
@@ -35,15 +26,13 @@ const reset = () => {
 }
 
 const showResult = () => {
-    const stars = resultCalculator()
+    const stars = resultCalculator(moves)
     document.getElementById('overlay').style.display = 'block'
     document.getElementById('scoreImg').src = `./img/${stars}` 
     var min = document.getElementById('minutes').textContent;
     var sec = document.getElementById('seconds').textContent
     document.getElementById('endTime').textContent = `${min} : ${sec}`
 }
-
-
 
 const updateTimer = () => {
     if (seconds < 60){
@@ -74,42 +63,4 @@ const startTimer = () => {
 startTimer()
 
 
-export {reset, isFlipped, clearAll, flip, showResult, stopInterval, startTimer}
-
-/* var img1 = ''
-var id1 = ''
-var img2 = ''
-var id2 = ''
-var clickCount = 0 */
-
-//da spostare
-/* const gameLogic = (ids, imageId) => { 
-    if (isFlipped(ids)){
-        if (clickCount < 2){
-            clickCount += 1;
-            flip(ids);
-        if (clickCount === 2){
-            img2 = imageId
-            id2 = ids
-            setTimeout(check, 700)
-        }    
-        if (clickCount === 1){
-            id1 = ids
-            img1 = imageId
-            } 
-        }
-    }     
-} */
-
-/* const reFlip = () => {
-    flip(id1)
-    flip(id2)
-} */
-
-/* const toZero = () => {
-    clickCount = 0
-    id1 = ''
-    img1 = ''
-    id2 = ''
-    img2 = '' 
-} */
+export {reset, isFlipped, flip, showResult, stopInterval, startTimer}

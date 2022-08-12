@@ -27,11 +27,12 @@ const gameLogic = (ids, imageId) => {
     }     
 }
 
-const resultCalculator = () => {
+const resultCalculator = (moves) => {
+    console.log(moves, 'ciao')
     if (moves <= 20){
         return '3stars.png'
     }
-    if (20 < moves < 30){
+    if (20 < moves && moves < 30){
         return '2stars.png'
     }
     else {
@@ -58,11 +59,7 @@ const check = () => {
 }
 
 const toZero = () => {
-    clickCount = 0
-    id1 = ''
-    img1 = ''
-    id2 = ''
-    img2 = '' 
+    return clickCount = 0, id1 = '', img1 = '', id2 = '', img2 = '' 
 }
 
-export {check, resultCalculator, gameLogic, toZero}
+export {check, resultCalculator, gameLogic, toZero, moves}
