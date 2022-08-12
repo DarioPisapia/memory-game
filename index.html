@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Space</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+     <div class="overlay" id="overlay">
+        <p class="scoreTxt">Your score is:</p>
+        <p class="endTime" id="endTime"></p>
+        <img class="scoreImg" id="scoreImg" src="" alt="score image">
+        <button type="button" class="playAgain" id="restartGame">Play Again</button>
+    </div>
+
+    <div class="header">
+        <button type="button" class="restart" id="restartMain" >Restart</button> 
+        <button type="button" id="stop">stop</button>
+        <button type="button" id="go">go</button>
+        <p class="timer">
+        <span id="minutes">00</span> : <span id="seconds">00</span>
+        </p>
+    </div>
+    
+
+    <div class="cardContainer" id="container"></div>
+
+    <script src="./dist/bundle.js" type="module" ></script>
+</body>
+</html>
