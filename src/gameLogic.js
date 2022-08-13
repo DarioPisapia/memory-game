@@ -1,4 +1,5 @@
-import {isFlipped, flip, showResult, stopInterval} from './domEvents.js'
+import {isFlipped, flip, showResult} from './domEvents.js'
+import {stopInterval} from './timer.js'
 
 var img1 = ''
 var id1 = ''
@@ -9,6 +10,7 @@ var clickCount = 0
 var moves = 0
 var points = 0 
 
+//check the state of the game
 const gameLogic = (ids, imageId) => { 
     if (isFlipped(ids)){
         if (clickCount < 2){
@@ -27,24 +29,12 @@ const gameLogic = (ids, imageId) => {
     }     
 }
 
-const resultCalculator = (moves) => {
-    console.log(moves, 'ciao')
-    if (moves <= 20){
-        return '3stars.png'
-    }
-    if (20 < moves && moves < 30){
-        return '2stars.png'
-    }
-    else {
-        return '1star.png'
-    }
-}
-
+//check if we find a couple of equal cards and if we find all of them show us the result
 const check = () => {
     moves += 1
     if (img2 === img1) {
         points += 1 
-        if(points === 2){
+        if(points === 10){
             showResult()
             clearInterval(stopInterval)
             points = 0
@@ -58,6 +48,20 @@ const check = () => {
     toZero()
 }
 
+//calculate how many stars we earned
+const resultCalculator = (moves) => {
+    if (moves <= 20){
+        return '3stars.png'
+    }
+    if (20 < moves && moves < 30){
+        return '2stars.png'
+    }
+    else {
+        return '1star.png'
+    }
+}
+
+//set the game to initial state
 const toZero = () => {
     return clickCount = 0, id1 = '', img1 = '', id2 = '', img2 = '' 
 }

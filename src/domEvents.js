@@ -1,17 +1,18 @@
-import { toZero, resultCalculator, moves } from "./gameLogic.js"
+import { toZero, resultCalculator, moves} from "./gameLogic.js"
 import { cardGenerator, shuffler } from "./cardGenerator.js"
+import { resetTimer } from "./timer.js"
 
-var seconds = 0
-var minutes = 0
-
+//check if a card is flipped
 const isFlipped = (ids) => {
     return document.getElementById(ids).className === 'card'
 }
 
+//flip the cards
 const flip = (ids) => {
     document.getElementById(ids).classList.toggle('flip')
 }
 
+//reset and restart the game
 const reset = () => {
     document.getElementById('container').innerHTML = "";
     cardGenerator(shuffler())
@@ -19,12 +20,10 @@ const reset = () => {
     document.getElementById('minutes').textContent = `00`
     document.getElementById('seconds').textContent = `00`
     toZero()
-    seconds = 0
-    minutes = 0
-    clearInterval(stopInterval)
-    startTimer()
+    resetTimer()
 }
 
+//show the result overlay
 const showResult = () => {
     const stars = resultCalculator(moves)
     document.getElementById('overlay').style.display = 'block'
@@ -34,33 +33,4 @@ const showResult = () => {
     document.getElementById('endTime').textContent = `${min} : ${sec}`
 }
 
-const updateTimer = () => {
-    if (seconds < 60){
-        if (seconds < 10){
-            document.getElementById('seconds').textContent = `0${seconds}`
-        }else{
-            document.getElementById('seconds').textContent = seconds  
-        }
-        
-    } else {
-        minutes += 1
-        seconds = 0
-        if (minutes < 10){
-            document.getElementById('minutes').textContent = `0${minutes}`
-            document.getElementById('seconds').textContent = `0${seconds}`
-        }
-        document.getElementById('minutes').textContent = `0${minutes}`
-        document.getElementById('seconds').textContent = `0${seconds}`
-    }
-    seconds ++
-}
-
-var stopInterval;
-const startTimer = () => {
-    stopInterval = setInterval(updateTimer, 1000)
-}
-
-startTimer()
-
-
-export {reset, isFlipped, flip, showResult, stopInterval, startTimer}
+export {reset, isFlipped, flip, showResult}
