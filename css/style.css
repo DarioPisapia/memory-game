@@ -9,6 +9,36 @@ body{
     background-attachment: fixed;
 }
 
+/* start */
+.startingPage {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(12, 12, 161, 0.728);
+    z-index: 1;
+}
+
+.welcomeText {
+    color:antiquewhite;
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 30vh; 
+    padding-left: 25vw;
+    padding-right: 25vw;
+}
+
+.startGame {
+    font-size: 2.7rem;
+    display: block;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 3px;
+    border-radius: 7px;
+    margin: 2rem auto;   
+    background-color:rgba(12, 12, 161, 0.728);
+    color:antiquewhite;
+    border-color: antiquewhite;
+}
 /* winning overlay */
 .overlay{
     display: none;
@@ -142,6 +172,15 @@ body{
     .card {
         width: 100px;
         height: 150px;
+    }
+
+    .welcomeText {
+        color:antiquewhite;
+        font-size: 1.7rem;
+        text-align: center;
+        padding-top: 25vh; 
+        padding-left: 5vw;
+        padding-right: 5vw;
     }
 }
 
