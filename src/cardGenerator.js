@@ -35,6 +35,7 @@ const cardGenerator = (imgArr) => {
 
     //assign all the attributes
     card.className = 'card';
+    card.setAttribute('cypress-tag', `${element}` )
     card.id = `${ids}`
     flipCard.className = 'flipCard';
     front.className = 'front';
