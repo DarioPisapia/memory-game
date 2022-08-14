@@ -3,13 +3,13 @@ import {resultCalculator, toZero} from '../src/gameLogic.js'
 var moves = 0
 
 test ('result calculator', () => {
-    expect(resultCalculator(moves)).toEqual('3stars.png')
+    expect(resultCalculator(moves)).toEqual(3)
     moves = 23
-    expect(resultCalculator(moves)).toEqual('2stars.png')
+    expect(resultCalculator(moves)).toEqual(2)
     moves = 30
-    expect(resultCalculator(moves)).toEqual('1star.png')
+    expect(resultCalculator(moves)).toEqual(1)
     moves = 0
-    expect(resultCalculator(moves)).toEqual('3stars.png')
+    expect(resultCalculator(moves)).toEqual(3)
 })
 
 test('varialbes to initial state', () => {

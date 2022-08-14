@@ -7,6 +7,7 @@ const allImgs = ['apollo11.jpeg', 'crewDragon.jpg', 'curiosityMars.jpeg', 'falco
 'starshipFull.jpg', 'webbTelescope.jpg'
 ]
 
+//shuffle the array with images names
 const shuffler = () => {
     const imgArr = []
     const indexUsed = []
@@ -63,7 +64,6 @@ const cardGenerator = (imgArr) => {
 
     });
 }
-
 
 const onClick = (cardId, imgName) => {
     document.getElementById(cardId).addEventListener('click', () => {

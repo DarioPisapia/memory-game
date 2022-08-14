@@ -12,8 +12,7 @@ const updateTimer = () => {
             document.getElementById('seconds').textContent = `0${seconds}`
         }else{
             document.getElementById('seconds').textContent = seconds  
-        }
-        
+        } 
     } else {
         minutes += 1
         seconds = 0
@@ -28,10 +27,10 @@ const updateTimer = () => {
 }
 
 const resetTimer = () => {
-    
     clearInterval(stopInterval)
     seconds = 0
     minutes = 0
     startTimer()
 }
+
 export {startTimer, stopInterval, resetTimer}

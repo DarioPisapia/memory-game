@@ -48,18 +48,18 @@ const check = () => {
     toZero()
 }
 
-//calculate how many stars we earned
 const resultCalculator = (moves) => {
     if (moves <= 20){
-        return '3stars.png'
+        return 3
     }
     if (20 < moves && moves < 30){
-        return '2stars.png'
+        return 2
     }
     else {
-        return '1star.png'
+        return 1
     }
 }
+
 
 //set the game to initial state
 const toZero = () => {
