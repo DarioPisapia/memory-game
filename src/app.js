@@ -2,7 +2,7 @@ import {cardGenerator, shuffler} from './cardGenerator.js'
 import {reset} from './domEvents.js'
 import {startTimer} from './timer.js'
 
-//generates the initial cards
+//generates cards
 cardGenerator(shuffler())
 
 //add event listener to the restart buttons

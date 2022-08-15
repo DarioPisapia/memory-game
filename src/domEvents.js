@@ -28,8 +28,8 @@ const reset = () => {
 const showResult = () => {
     document.getElementById('overlay').style.display = 'block'
     stars(resultCalculator(moves))
-    var min = document.getElementById('minutes').textContent;
-    var sec = document.getElementById('seconds').textContent
+    const min = document.getElementById('minutes').textContent;
+    const sec = document.getElementById('seconds').textContent
     document.getElementById('endTime').textContent = `${min} : ${sec}`
 }
 
@@ -38,7 +38,7 @@ const showResult = () => {
 const stars = (stars) => {
     for (let i = 0; i < stars; i++){
         const container = document.getElementById('starsContainer');
-        var child = document.createElement('img')
+        const child = document.createElement('img')
         child.src = '../img/star.png'
         child.className = 'star'
         container.appendChild(child)

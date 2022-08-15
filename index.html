@@ -7,20 +7,34 @@
     <title>Memory Space</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="./img/icons/favicon.png" type="image/png">
+    <link rel="manifest" href="./manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service-worker.js').then(function(registration) {
+                console.log('Service worker installato correttamente, ecco lo scope:', registration.scope);
+            }).catch(function(error) {
+                console.log('Installazione service worker fallita:', error);
+            });
+        }
+    </script>
 </head>
 <body>
+    <!-- welcome -->
     <div class="startingPage" id="startingPage">
-        <p class="welcomeText">Welcome to the game that requires a lot of space memory!
-            Are you ready to start? Do you have enought space in your memory?
+        <p class="welcomeText">Welcome!<br>
+            Are you ready to start? <br>Do you have enough space in your memory?
         </p>
         <button type="button" id="startGame" class="startGame">Play!</button>
     </div>
+
+    <!-- results -->
     <div class="overlay" id="overlay">
         <p class="scoreTxt">Your score is:</p>
         <p class="endTime" id="endTime"></p>
         <div class="starsContainer" id="starsContainer"></div>    
         <button type="button" class="playAgain" id="restartGame">Play Again</button>
     </div>
+
 
     <div class="header">
         <button type="button" class="restart" id="restartMain" >Restart</button> 
@@ -29,7 +43,6 @@
         </p>
     </div>
     
-
     <div class="cardContainer" id="container"></div>
 
     <script src="./dist/bundle.js" type="module" ></script>
